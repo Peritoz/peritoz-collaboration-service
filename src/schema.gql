@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Comment {
+  id: Float!
+  authorId: String!
+  content: String!
+  date: DateTime!
+  replies: [Comment!]!
+  replyTo: Comment
+  targetType: String!
+  targetId: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  findAllComments(targetType: String!, targetId: String!): [Comment!]!
+  findOneComment(id: Int!): Comment!
+}
+
+type Mutation {
+  createComment(commentInput: CreateCommentDto!): Comment!
+  updateComment(id: Int!, commentInput: UpdateCommentDto!): Comment!
+  removeComment(id: Int!): Comment!
+}
+
+input CreateCommentDto {
+  content: String!
+  replyTo: Int
+  targetType: String!
+  targetId: String!
+}
+
+input UpdateCommentDto {
+  content: String!
+}
