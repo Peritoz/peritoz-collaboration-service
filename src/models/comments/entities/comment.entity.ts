@@ -1,4 +1,5 @@
 import {
+  BeforeInsert,
   Column,
   Entity,
   ManyToOne,
@@ -41,4 +42,8 @@ export class Comment {
   @Field()
   @Column()
   targetId: string;
+
+  @Field()
+  @Column({ default: false })
+  edited: boolean;
 }

@@ -11,6 +11,7 @@ type Comment {
   replyTo: Comment
   targetType: String!
   targetId: String!
+  edited: Boolean!
 }
 
 """

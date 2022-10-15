@@ -67,6 +67,7 @@ export class CommentsService {
     }
 
     Object.assign(updatedComment, comment);
+    updatedComment.edited = true;
 
     await this.repo.save(updatedComment);
 
