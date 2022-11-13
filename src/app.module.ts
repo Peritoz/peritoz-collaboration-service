@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CommentsModule } from './models/comments/comments.module';
 import { join } from 'path';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -36,8 +34,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  ]
 })
 export class AppModule {}
